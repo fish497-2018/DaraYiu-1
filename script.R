@@ -1,6 +1,8 @@
 fish_data <- read.csv("data/Gaeta_etal_CLC_data.csv")
 library(dplyr)
 library(ggplot2)
+library(tidyverse)
+
 fish_data_cat = fish_data %>%
   mutate(length_cat = ifelse(length > 200, "big", "small"))
 
@@ -9,5 +11,7 @@ ggplot(fish_data_cat, aes(x = scalelength, fill = length_cat)) +
 
 
 #Plot histogram of scale length by fish categorical size
-ggplot(fish_data_cat, aes(x = scalelength, fill = length_cat)) +
+scale_hist_by_length <- ggplot(fish_data_cat, aes(x = scalelength, fill = length_cat)) +
   geom_histogram()
+
+ggsave("figures/scale_hist_by_lenth.jpeg")

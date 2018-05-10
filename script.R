@@ -12,6 +12,7 @@ descaled_fish_data_cat <- fish_data_cat %>%
   group_by(scalelength) %>%
   filter(scalelength > 1)
 summary(descaled_fish_data_cat)
+View(descaled_fish_data_cat)
 
 #plot histogram of fish length by size 
 ggplot(descaled_fish_data_cat, aes(x = scalelength, fill = length_cat)) +
@@ -23,5 +24,13 @@ scale_hist_by_length <- ggplot(fish_data_cat, aes(x = scalelength, fill = length
 
 #save scale length figure
 ggsave("figures/scale_hist_by_lenth.jpeg")
+
+#scatterplot
+ggplot(data = descaled_fish_data_cat, aes(x=length, y=scalelength, color = lakeid)) + 
+       geom_point() +
+  ylab("Fish scale length (mm)" ) +
+  xlab("Fish standard length (mm)") +
+  theme_classic()
+
 
 

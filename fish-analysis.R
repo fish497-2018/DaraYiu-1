@@ -1,4 +1,4 @@
-fish_data <- read.csv("data/Gaeta_etal_CLC_data.csv")
+fish_data <- read.csv("data/Gaeta_etal_CLC_data_1.csv")
 
 library(tidyverse)
 
@@ -19,7 +19,7 @@ ggplot(descaled_fish_data_cat, aes(x = scalelength, fill = length_cat)) +
   geom_histogram()
 
 #Plot histogram of scale length by fish categorical size
-scale_hist_by_length <- ggplot(fish_data_cat, aes(x = scalelength, fill = length_cat)) +
+scale_hist_by_length <- ggplot(descaled_fish_data_cat, aes(x = scalelength, fill = length_cat)) +
   geom_histogram()
 
 #save scale length figure
